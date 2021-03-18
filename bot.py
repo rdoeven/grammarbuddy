@@ -123,7 +123,7 @@ class grammer_buddy(discord.Client):
             
             elif message.content.startswith("$rebuild"):
                 self.update_vars()
-                await message.channel.send("rebuilded")
+                await message.channel.send("rebuilt")
             
             elif message.content.startswith("$help"):
                 embed=discord.Embed(title="grammarbuddy - Help", description="command [ variable ] - description", color=0xd92f3a)
