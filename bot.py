@@ -89,7 +89,7 @@ class grammer_buddy(discord.Client):
         if message.author.id == int(PLAYER_ID) and not message.content.startswith('$'):
             if self.intake:
                 self.add_to_file(message.content)
-            elif self.correcting:
+            if self.correcting:
                 msg = " ".join([self.my_autocorrect(i) for i in message.content.split(" ")])
                 if msg.lower() != message.content.lower():
                     await message.channel.send("Wat robbe eigenlijk wil zeggen is: " + msg)
@@ -123,7 +123,12 @@ class grammer_buddy(discord.Client):
             
             elif message.content.startswith("$rebuild"):
                 self.update_vars()
-                await message.channel.send("rebuilded")
+                await message.channel.send("rebuilt")
+            
+            elif message.content.startswith("$add"):
+                _, new = message.content.split(" ")
+                self.update_file("", new)
+                await message.channel.send(f"{new} was added to the dictionary")
             
             elif message.content.startswith("$help"):
                 embed=discord.Embed(title="grammarbuddy - Help", description="command [ variable ] - description", color=0xd92f3a)
