@@ -154,6 +154,9 @@ class grammer_buddy(discord.Client):
 
             else:
                 await message.channel.send("command not recognized")
+        
+        if "@Robbe's grammar buddy#4049" in message.content:
+                message.react('813759760809197589')
 
 buddy = grammer_buddy()
 buddy.run(TOKEN)
