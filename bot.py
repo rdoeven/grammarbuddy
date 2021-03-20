@@ -114,12 +114,12 @@ class grammer_buddy(discord.Client):
             elif message.content.startswith("$correct"):
                 _, bad, correction = message.content.split(" ")
                 self.update_file(bad, correction)
-                await message.channel.send(f"correction done, thanks @{message.author}")
+                await message.channel.send(f"correction done, thanks @{message.author.id}")
             
             elif message.content.startswith("$replace"):
                 _, bad, correction = message.content.split(" ")
                 self.update_file(bad, correction, True)
-                await message.channel.send(f"correction done, thanks @{message.author}")
+                await message.channel.send(f"correction done, thanks @{message.author.id}")
             
             elif message.content.startswith("$rebuild"):
                 self.update_vars()
@@ -134,14 +134,15 @@ class grammer_buddy(discord.Client):
                 embed=discord.Embed(title="grammarbuddy - Help", description="command [ variable ] - description", color=0xd92f3a)
                 embed.add_field(name="$help", value="help function", inline=False)
                 embed.add_field(name="$rebuild", value="force update the dictionary", inline=False)
-                embed.add_field(name="correct [ mistake ] [ correction ]", value="the mistake is a valid word but used in the wrong context. this command will boost the correction in the dictionary and lower the dictionary rate of the mistake", inline=False)
-                embed.add_field(name="replace [ mistake ] [ correction ]", value="the mistake is not even a valid word and used in the wrong context. this command deletes the mistake from the disctionary and boosts the correction", inline=False)
+                embed.add_field(name="$correct [ mistake ] [ correction ]", value="the mistake is a valid word but used in the wrong context. this command will boost the correction in the dictionary and lower the dictionary rate of the mistake", inline=False)
+                embed.add_field(name="$replace [ mistake ] [ correction ]", value="the mistake is not even a valid word and used in the wrong context. this command deletes the mistake from the disctionary and boosts the correction", inline=False)
+                embed.add_field(name="$add [word]", value="add a word to the dictionary", inline=False)
                 embed.add_field(name="$intake off", value="stop adding messages to the dictionary", inline=False)
                 embed.add_field(name="$intake on", value="start adding messages to the dictionary", inline=False)
                 embed.add_field(name="$on", value="turn on autocorrect", inline=False)
                 embed.add_field(name="$off", value="turn off autocorrect", inline=False)
                 embed.add_field(name="$status", value="shows the status of the bot", inline=False)
-                embed.set_footer(text="fuck lennart")
+                embed.set_footer(text="fuck robbe")
                 await message.channel.send(embed=embed)
             
             elif message.content.startswith("$status"):
