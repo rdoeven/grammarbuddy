@@ -142,7 +142,7 @@ class grammer_buddy(discord.Client):
                 embed.add_field(name="$on", value="turn on autocorrect", inline=False)
                 embed.add_field(name="$off", value="turn off autocorrect", inline=False)
                 embed.add_field(name="$status", value="shows the status of the bot", inline=False)
-                embed.set_footer(text="fuck robbe")
+                embed.set_footer(text="fuck lenny")
                 await message.channel.send(embed=embed)
             
             elif message.content.startswith("$status"):
