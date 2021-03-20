@@ -114,12 +114,12 @@ class grammer_buddy(discord.Client):
             elif message.content.startswith("$correct"):
                 _, bad, correction = message.content.split(" ")
                 self.update_file(bad, correction)
-                await message.channel.send(f"correction done, thanks @{message.author.id}")
+                await message.channel.send(f"correction done, thanks <@{message.author.id}>")
             
             elif message.content.startswith("$replace"):
                 _, bad, correction = message.content.split(" ")
                 self.update_file(bad, correction, True)
-                await message.channel.send(f"correction done, thanks @{message.author.id}")
+                await message.channel.send(f"correction done, thanks <@{message.author.id}>")
             
             elif message.content.startswith("$rebuild"):
                 self.update_vars()
